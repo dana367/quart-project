@@ -1,0 +1,19 @@
+[project]
+name = "quart_project"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "dana367", email = "dana.larina1@gmail.com"},
+]
+dependencies = []
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "no"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
