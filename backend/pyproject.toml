@@ -5,7 +5,10 @@ description = "Default template for PDM package"
 authors = [
     {name = "dana367", email = "dana.larina1@gmail.com"},
 ]
-dependencies = []
+dependencies = [
+    "quart>=0.19.6",
+    "pytest-asyncio>=0.24.0",
+]
 requires-python = ">=3.12"
 readme = "README.md"
 license = {text = "Private"}
@@ -32,6 +35,7 @@ dev = [
 ]
 
 [tool.pdm.scripts]
+start = "quart --app src/backend/run.py run --port 5050"
 format-black = "black src/ tests/"
 format-djhtml = "djhtml src/backend/templates -t 2 --in-place"
 format-isort = "isort src tests"
@@ -45,3 +49,6 @@ lint-mypy = "mypy src/backend tests"
 lint-vulture = "vulture src"
 lint = {composite = ["lint-bandit", "lint-black", "lint-djhtml", "lint-flake8", "lint-isort", "lint-mypy", "lint-vulture"]}
 test = "pytest tests/"
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"  # You can change the scope to session, module, etc.
