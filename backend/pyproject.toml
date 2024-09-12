@@ -8,6 +8,7 @@ authors = [
 dependencies = [
     "quart>=0.19.6",
     "pytest-asyncio>=0.24.0",
+    "quart-db>=0.8.3",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
@@ -48,7 +49,10 @@ lint-isort = "isort --check --diff src tests"
 lint-mypy = "mypy src/backend tests"
 lint-vulture = "vulture src"
 lint = {composite = ["lint-bandit", "lint-black", "lint-djhtml", "lint-flake8", "lint-isort", "lint-mypy", "lint-vulture"]}
-test = "pytest tests/"
+recreate-db-base = "quart --app src/backend/run.py recreate_db"
+recreate-db = {composite = ["recreate-db-base"], env_file = "development.env"}
+test = {composite = ["recreate-db-base", "pytest tests/"], env_file = "testing.env"}
 
 [tool.pytest.ini_options]
 asyncio_default_fixture_loop_scope = "function"  # You can change the scope to session, module, etc.
+
