@@ -22,6 +22,8 @@ build-backend = "pdm.backend"
 [tool.pdm]
 distribution = true
 
+
+
 [tool.pdm.dev-dependencies]
 dev = [
     "black>=24.8.0",
@@ -36,7 +38,7 @@ dev = [
 ]
 
 [tool.pdm.scripts]
-start = "quart --app src/backend/run.py run --port 5050"
+start = {cmd = "quart --app src/backend/run.py run --port 5050", env_file = "development.env"}
 format-black = "black src/ tests/"
 format-djhtml = "djhtml src/backend/templates -t 2 --in-place"
 format-isort = "isort src tests"
@@ -55,4 +57,6 @@ test = {composite = ["recreate-db-base", "pytest tests/"], env_file = "testing.e
 
 [tool.pytest.ini_options]
 asyncio_default_fixture_loop_scope = "function"  # You can change the scope to session, module, etc.
-
+addopts = "--showlocals"
+asyncio_mode = "auto"
+pythonpath = ["src"]
