@@ -9,6 +9,10 @@ dependencies = [
     "quart>=0.19.6",
     "pytest-asyncio>=0.24.0",
     "quart-db>=0.8.3",
+    "quart-auth>=0.10.1",
+    "bcrypt>=4.2.0",
+    "zxcvbn>=4.4.28",
+    "itsdangerous>=2.2.0",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
