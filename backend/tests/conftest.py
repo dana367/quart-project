@@ -14,7 +14,7 @@ async def _test_app() -> AsyncGenerator[Quart, None]:
 
 
 @pytest.fixture(name="connection", scope="function")
-async def _connection(app: Quart) -> AsyncGenerator[Connection, None]:
+async def _connection(test_app: Quart) -> AsyncGenerator[Connection, None]:
     async with quart_db.connection() as connection:
         async with connection.transaction():
             yield connection
