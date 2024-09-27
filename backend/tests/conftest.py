@@ -9,8 +9,8 @@ from backend.run import app, quart_db
 
 @pytest.fixture(name="test_app", scope="function")
 async def _test_app() -> AsyncGenerator[Quart, None]:
-    async with app.test_app() as test_app:
-        yield test_app
+    async with app.test_app():
+        yield app
 
 
 @pytest.fixture(name="connection", scope="function")

@@ -29,7 +29,7 @@ async def select_todos(
         WHERE member_id = :member_id
         AND complete = :complete"""
         values = {"member_id": member_id, "complete": complete}
-        return [Todo(**row) async for row in connection.iterate(query, values)]
+    return [Todo(**row) async for row in connection.iterate(query, values)]
 
 
 async def select_todo(
@@ -55,8 +55,8 @@ async def insert_todo(
 ) -> Todo:
     result = await connection.fetch_one(
         """INSERT INTO todos (complete, due, member_id, task)
-    VALUES (:complete, :due, :member_id, :task)
-    RETURNING id, complete, due, task""",
+                VALUES (:complete, :due, :member_id, :task)
+            RETURNING id, complete, due, task""",
         {
             "member_id": member_id,
             "task": task,
@@ -64,6 +64,7 @@ async def insert_todo(
             "due": due,
         },
     )
+    assert result is not None  # nosec
     return Todo(**result)
 
 

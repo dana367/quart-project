@@ -1,7 +1,5 @@
 import pytest
-from asyncpg.exceptions import UniqueViolationError
-
-# type: ignore
+from asyncpg.exceptions import UniqueViolationError  # type: ignore
 from quart_db import Connection
 
 from backend.models.member import insert_member, select_member_by_email

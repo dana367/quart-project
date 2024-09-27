@@ -46,6 +46,7 @@ async def insert_member(
     email_verified""",
         {"email": email, "password_hash": password_hash},
     )
+    assert result is not None  # nosec
     return Member(**result)
 
 
@@ -54,8 +55,8 @@ async def update_member_password(
 ) -> None:
     await db.execute(
         """UPDATE members
-    SET password_hash = :password_hash
-    WHERE id = :id""",
+        SET password_hash = :password_hash
+        WHERE id = :id""",
         {"id": id, "password_hash": password_hash},
     )
 # fmt: on
