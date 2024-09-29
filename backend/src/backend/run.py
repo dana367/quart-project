@@ -4,8 +4,7 @@ from subprocess import call  # nosec
 from urllib.parse import urlparse
 
 from quart import Quart, ResponseReturnValue
-
-# from quart_auth import AuthManager
+from quart_auth import QuartAuth
 from quart_db import QuartDB
 from quart_rate_limiter import RateLimiter, RateLimitExceeded
 from quart_schema import QuartSchema, RequestSchemaValidationError
@@ -22,7 +21,7 @@ app.register_blueprint(sessions_blueprint)
 
 quart_db = QuartDB(app)
 
-# auth_manager = AuthManager(app)
+auth_manager = QuartAuth(app)
 rate_limiter = RateLimiter(app)
 
 schema = QuartSchema(app, convert_casing=True)

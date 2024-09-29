@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:7bad4659618802a110fa85ccfebed434e201be38476f4d89bf12864573bb437a"
+content_hash = "sha256:d25106e9a28cfd200305c053d55578cba4811e9e021e0fe57684d970571942a4"
 
 [[metadata.targets]]
 requires_python = ">=3.12"
@@ -246,7 +246,7 @@ name = "flake8"
 version = "7.1.1"
 requires_python = ">=3.8.1"
 summary = "the modular source code checker: pep8 pyflakes and co"
-groups = ["dev"]
+groups = ["default", "dev"]
 dependencies = [
     "mccabe<0.8.0,>=0.7.0",
     "pycodestyle<2.13.0,>=2.12.0",
@@ -255,6 +255,21 @@ dependencies = [
 files = [
     {file = "flake8-7.1.1-py2.py3-none-any.whl", hash = "sha256:597477df7860daa5aa0fdd84bf5208a043ab96b8e96ab708770ae0364dd03213"},
     {file = "flake8-7.1.1.tar.gz", hash = "sha256:049d058491e228e03e67b390f311bbf88fce2dbaa8fa673e7aea87b7198b8d38"},
+]
+
+[[package]]
+name = "flake8-print"
+version = "5.0.0"
+requires_python = ">=3.7"
+summary = "print statement checker plugin for flake8"
+groups = ["default"]
+dependencies = [
+    "flake8>=3.0",
+    "pycodestyle",
+]
+files = [
+    {file = "flake8-print-5.0.0.tar.gz", hash = "sha256:76915a2a389cc1c0879636c219eb909c38501d3a43cc8dae542081c9ba48bdf9"},
+    {file = "flake8_print-5.0.0-py3-none-any.whl", hash = "sha256:84a1a6ea10d7056b804221ac5e62b1cee1aefc897ce16f2e5c42d3046068f5d8"},
 ]
 
 [[package]]
@@ -478,7 +493,7 @@ name = "mccabe"
 version = "0.7.0"
 requires_python = ">=3.6"
 summary = "McCabe checker, plugin for flake8"
-groups = ["dev"]
+groups = ["default", "dev"]
 files = [
     {file = "mccabe-0.7.0-py2.py3-none-any.whl", hash = "sha256:6c2d30ab6be0e4a46919781807b4f0d834ebdd6c6e3dca0bda5a15f863427b6e"},
     {file = "mccabe-0.7.0.tar.gz", hash = "sha256:348e0240c33b60bbdf4e523192ef919f28cb2c3d7d5c7794f74009290f236325"},
@@ -598,7 +613,7 @@ name = "pycodestyle"
 version = "2.12.1"
 requires_python = ">=3.8"
 summary = "Python style guide checker"
-groups = ["dev"]
+groups = ["default", "dev"]
 files = [
     {file = "pycodestyle-2.12.1-py2.py3-none-any.whl", hash = "sha256:46f0fb92069a7c28ab7bb558f05bfc0110dac69a0cd23c61ea0040283a9d78b3"},
     {file = "pycodestyle-2.12.1.tar.gz", hash = "sha256:6838eae08bbce4f6accd5d5572075c63626a15ee3e6f842df996bf62f6d73521"},
@@ -679,7 +694,7 @@ name = "pyflakes"
 version = "3.2.0"
 requires_python = ">=3.8"
 summary = "passive checker of Python programs"
-groups = ["dev"]
+groups = ["default", "dev"]
 files = [
     {file = "pyflakes-3.2.0-py2.py3-none-any.whl", hash = "sha256:84b5be138a2dfbb40689ca07e2152deb896a65c3a3e24c251c5c62489568074a"},
     {file = "pyflakes-3.2.0.tar.gz", hash = "sha256:1c61603ff154621fb2a9172037d84dca3500def8c8b630657d1701f026f8af3f"},

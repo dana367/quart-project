@@ -17,6 +17,7 @@ dependencies = [
     "quart-rate-limiter>=0.10.0",
     "quart-schema>=0.20.0",
     "httpx>=0.27.2",
+    "flake8-print>=5.0.0",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
@@ -62,7 +63,7 @@ lint-flake8 = "flake8 src/ tests/"
 lint-isort = "isort --check --diff src tests"
 lint-mypy = "mypy src/backend tests"
 lint-vulture = "vulture src"
-lint = {composite = ["lint-bandit", "lint-black", "lint-djhtml", "lint-flake8", "lint-isort", "lint-mypy", "lint-vulture"]}
+lint = {composite = ["lint-flake8", "lint-bandit", "lint-black", "lint-djhtml", "lint-isort", "lint-mypy", "lint-vulture"]}
 recreate-db-base = "quart --app src/backend/run.py recreate_db"
 recreate-db = {composite = ["recreate-db-base"], env_file = "development.env"}
 test = {composite = ["recreate-db-base", "pytest tests/"], env_file = "testing.env"}
