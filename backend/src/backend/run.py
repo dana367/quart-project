@@ -1,3 +1,4 @@
+import logging
 import os
 from subprocess import call  # nosec
 from urllib.parse import urlparse
@@ -25,6 +26,8 @@ quart_db = QuartDB(app)
 rate_limiter = RateLimiter(app)
 
 schema = QuartSchema(app, convert_casing=True)
+
+logging.basicConfig(level=logging.INFO)
 
 
 @app.cli.command("recreate_db")
