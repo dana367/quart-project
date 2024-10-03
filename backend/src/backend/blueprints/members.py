@@ -203,6 +203,7 @@ async def reset_password(data: ResetPasswordData) -> ResponseReturnValue:
         strength = zxcvbn(data.password)
         if strength["score"] < MINIMUM_STRENGTH:
             raise APIError(400, "WEAK_PASSWORD")
+
         hashed_password = bcrypt.hashpw(
             data.password.encode("utf-8"),
             bcrypt.gensalt(14),
